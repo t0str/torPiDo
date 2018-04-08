@@ -1,0 +1,10 @@
+Log notice file /var/log/tor/notices.log
+DataDirectory /var/lib/tor
+
+#VirtualAddrNetworkIPv4 10.192.0.0/10
+AutomapHostsOnResolve 1
+
+SocksPort 0
+#SocksPort 0.0.0.0:9050
+TransPort 0.0.0.0:9040
+DNSPort 0.0.0.0:5353

@@ -1,0 +1,7 @@
+INET="eth1"
+while [ ! -e /sys/class/net/$INET ]
+do
+  sleep 2
+done
+echo Configuring external network conection.
+ifup $INET

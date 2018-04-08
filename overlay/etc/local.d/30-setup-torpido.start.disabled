@@ -1,0 +1,30 @@
+/etc/init.d/shorewall start
+
+INET="eth1"
+while [ ! -e /sys/class/net/$INET ]
+do
+  sleep 2
+done
+echo Configuring external network conection.
+ifup $INET
+
+WLAN="wlan0"
+if [ -e /sys/class/net/$WLAN ]; then
+  echo Configuring wlan AP.
+  ifup $WLAN
+  /etc/init.d/hostapd start
+fi
+
+LAN="eth0"
+if [ -e /sys/class/net/$LAN ]; then
+  echo Starting LAN.
+  ifup $LAN
+fi
+
+/etc/init.d/dnsmasq start
+/etc/init.d/sshd start
+
+sleep 2
+
+/etc/init.d/chronyd start
+/etc/init.d/tor start

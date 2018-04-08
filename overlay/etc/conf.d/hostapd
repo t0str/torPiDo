@@ -1,0 +1,7 @@
+# Space separated list of configuration files
+CONFIGS="/etc/hostapd/hostapd.conf"
+
+# Extra options to pass to hostapd, see hostapd(8)
+OPTIONS=""
+
+rc_need="net local"
